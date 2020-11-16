@@ -1,11 +1,4 @@
-﻿/*
- * Created by SharpDevelop.
- * User: erxzr5
- * Date: 2017-03-31
- * Time: 09:46
- * 
- * To change this template use Tools | Options | Coding | Edit Standard Headers.
- */
+﻿
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -24,6 +17,8 @@ using Dassault.Catia.R24.HybridShapeTypeLib;
 using Dassault.Catia.R24.KnowledgewareTypeLib;
 using Dassault.Catia.R24.SPATypeLib;
 
+using ATN.Catia.R24.COM;
+
 
 namespace ATN.Catia.R24.Ext
 {
@@ -33,16 +28,16 @@ namespace ATN.Catia.R24.Ext
 		public static Selection SearchDoc(Document doc, string query, bool visible = false)
 		{
 			if (!visible)
-				CatiaApp.Instance.HSOSynchronized = false;
+				CatiaApplication.Instance.HSOSynchronized = false;
 			doc.Selection.Search(query);
 			if (!visible)
-				CatiaApp.Instance.HSOSynchronized = true;
+				CatiaApplication.Instance.HSOSynchronized = true;
 			return doc.Selection;
 		}
 		
 		public static Selection NewSearchActiveDoc(string query)
 		{
-			return SearchDoc(CatiaApp.Instance.ActiveDocument, query);
+			return SearchDoc(CatiaApplication.Instance.ActiveDocument, query);
 		}
 
 		public static Document GetDocument(string instance)

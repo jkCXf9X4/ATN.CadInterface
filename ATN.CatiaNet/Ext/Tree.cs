@@ -8,7 +8,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Windows.Automation;
 
-
+using ATN.Catia.R24.COM;
 
 using Dassault.Catia.R24.INFITF;
 using Dassault.Catia.R24.ProductStructureTypeLib;
@@ -74,7 +74,7 @@ namespace ATN.Catia.R24.Ext
 		{
 			// insert test to see if only one is selected
 			
-			var doc = CatiaApp.Instance.ActiveDocument;
+			var doc = CatiaApplication.Instance.ActiveDocument;
 			
 			if (doc.IsProductDocument()) {
 				var prod = (ProductDocument)doc;
@@ -119,7 +119,7 @@ namespace ATN.Catia.R24.Ext
 		public static bool ActivateSelection()
 		{
 			// Check if one is selected
-			if ( CatiaApp.Instance.ActiveDocument.Selection.Count2 != 1)
+			if ( CatiaApplication.Instance.ActiveDocument.Selection.Count2 != 1)
 				return false;
 			
 			Activate();
@@ -133,7 +133,7 @@ namespace ATN.Catia.R24.Ext
 		/// <returns>True if expanded correctly, false otherwise</returns>
 		public static bool ExpandSelection()
 		{
-			var Catia = CatiaApp.Instance;
+			var Catia = CatiaApplication.Instance;
 			//TODO: Implement deaper expansion
 			
 			// Prerequsites 
@@ -160,7 +160,7 @@ namespace ATN.Catia.R24.Ext
 		
 		private static void Activate()
 		{
-			CatiaApp.Instance.StartCommand("FrmActivate");
+			CatiaApplication.Instance.StartCommand("FrmActivate");
 		}
 	}
 

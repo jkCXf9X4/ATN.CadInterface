@@ -15,6 +15,8 @@ using Dassault.Catia.R24.HybridShapeTypeLib;
 using Dassault.Catia.R24.KnowledgewareTypeLib;
 using Dassault.Catia.R24.SPATypeLib;
 
+using ATN.Catia.R24.COM;
+
 
 namespace ATN.Catia.R24.Ext
 {
@@ -28,7 +30,7 @@ namespace ATN.Catia.R24.Ext
 		
 		public static Part GetPartBase(this PartDocument i)
 		{
-			var partBase = i.Part;
+			var partBase = i.get_Part();
 			return partBase;
 		}
 		
@@ -37,7 +39,7 @@ namespace ATN.Catia.R24.Ext
 
 			foreach (HybridBody body in part.HybridBodies) {
 				
-				var sel = CatiaApp.Instance.ActiveDocument.Selection;
+				var sel = CatiaApplication.Instance.ActiveDocument.Selection;
 				
 				sel.Clear();
 				

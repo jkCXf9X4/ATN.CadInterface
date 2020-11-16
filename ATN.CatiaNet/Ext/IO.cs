@@ -10,6 +10,9 @@ using Dassault.Catia.R24.INFITF;
 using Dassault.Catia.R24.ProductStructureTypeLib;
 using Dassault.Catia.R24.MECMOD;
 
+using ATN.Catia.R24.COM;
+
+
 namespace ATN.Catia.R24.Ext
 {
 	public static class Export
@@ -89,13 +92,13 @@ namespace ATN.Catia.R24.Ext
 		public static PartDocument CreatePartFromProduct(ProductDocument productDoc)
 		{
 
-			Application Catia = CatiaApp.Instance;
+			Application Catia = CatiaApplication.Instance;
 			
 			Selection mySelect = Catia.ActiveDocument.Selection;
 			mySelect.Clear();
 			mySelect.Add(productDoc.Product);
 			
-			CatiaApp.ToFront();
+			CatiaApplication.ToFront();
 			
 			var bench = Workbench.GetWorkbenchId();
 			Debug.WriteLine("Current workbench: " + bench);

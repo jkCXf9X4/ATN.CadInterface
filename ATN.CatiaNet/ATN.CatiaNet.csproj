@@ -2,10 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net48</TargetFramework>
-    <!-- <Configuration>Release</Configuration> -->
-    <Configuration>Debug</Configuration>
-
-    <PackageId>ATN.CatNet</PackageId>
+    <PackageId>ATN.CatiaNet</PackageId>
     <ProjectGuid>609FA6A9-A3CE-43DF-9597-F1DD4298E550</ProjectGuid>
     <Version>0.0.1</Version>
     <Authors>jkCXf9X4</Authors>
@@ -20,12 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="Catia.R24">
-      <HintPath>..\packages\Catia.R24.dll</HintPath>
-      <EmbedInteropTypes>false</EmbedInteropTypes>
-      <Private>true</Private>
-    </Reference>
-
     <Reference Include="Microsoft.VisualBasic" />
 
     <Reference Include="UIAutomationClient">
@@ -35,6 +26,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="ATN.Catia.R24" Version="0.0.a" />
+
     <PackageReference Include="ATN.Utils.Collection" Version="0.0.1" />
     <PackageReference Include="ATN.Utils.MathExt" Version="0.0.1" />
     <PackageReference Include="ATN.Utils.NativeExt" Version="0.0.3" />
@@ -46,10 +39,7 @@
     </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="ILRepack" Version="2.0.18">
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
-    
+
     <PackageReference Include="NuGet.Build.Tasks.Pack" Version="5.2.0">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
@@ -59,19 +49,5 @@
         <PrivateAssets>all</PrivateAssets>
     </PackageReference>
 </ItemGroup>
-
-<Target Name="ILRepack" AfterTargets="Build" Condition="'$(Configuration)' == 'Release'">
-<!-- Merge the Catia dll into the dll to ensure that this is shipped-->
-<ItemGroup>
-<ILRepackPackage Include="$(NuGetPackageRoot)\ilrepack\*\tools\ilrepack.exe" />
-</ItemGroup>
-
-
-<Error Condition="!Exists(@(ILRepackPackage->'%(FullPath)'))" Text="You are trying to use the ILRepack
- package, but it is not installed or at the correct location" />
-<Exec Command="echo IlRePack staring" />
-<Exec Command="@(ILRepackPackage->'%(fullpath)') /out:$(OutputPath)CatNet.dll $(OutputPath)CatNet.dll $(OutputPath)Catia.R24.dll" />
-</Target>
-   
 
 </Project>

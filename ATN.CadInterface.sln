@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatNet", "CatNet\CatNet.csproj", "{609FA6A9-A3CE-43DF-9597-F1DD4298E550}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATN.CatiaNet", "ATN.CatiaNet\ATN.CatiaNet.csproj", "{609FA6A9-A3CE-43DF-9597-F1DD4298E550}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cat3DCS", "Cat3DCS\Cat3DCS.csproj", "{44E8A5D2-1133-4D32-BBD9-24FF94079B15}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATN.3dcsNet", "ATN.3dcsNet\ATN.3dcsNet.csproj", "{44E8A5D2-1133-4D32-BBD9-24FF94079B15}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

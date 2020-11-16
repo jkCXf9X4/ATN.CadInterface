@@ -5,6 +5,7 @@ using System.Linq;
 using Dassault.Catia.R24.INFITF;
 using Dassault.Catia.R24.MECMOD;
 
+using ATN.Catia.R24.COM;
 
 
 namespace ATN.Catia.R24.Ext
@@ -80,13 +81,13 @@ namespace ATN.Catia.R24.Ext
 		
 		public static Document GetActiveDocument()
 		{
-			var doc = CatiaApp.Instance.ActiveDocument;
+			var doc = CatiaApplication.Instance.ActiveDocument;
 			return doc;
 		}
 
 		public static string GetActiveDocumentName()
 		{
-			var doc = CatiaApp.Instance.ActiveDocument;
+			var doc = CatiaApplication.Instance.ActiveDocument;
 			var sel = doc.Selection;
 			sel.Clear();
 			sel.Search("Name=*,in");
@@ -104,7 +105,7 @@ namespace ATN.Catia.R24.Ext
 
 		public static void ActivateRootDocument()
 		{
-			var active_wndow = CatiaApp.Instance.ActiveWindow;
+			var active_wndow = CatiaApplication.Instance.ActiveWindow;
 			var parent = active_wndow.Parent;
 			active_wndow.Activate();
 		}

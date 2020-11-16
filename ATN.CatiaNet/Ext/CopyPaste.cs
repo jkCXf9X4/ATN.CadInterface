@@ -1,6 +1,9 @@
 ﻿using Dassault.Catia.R24.INFITF;
 using System;
 
+using ATN.Catia.R24.COM;
+
+
 namespace ATN.Catia.R24.Ext
 {
 	/// <summary>
@@ -131,7 +134,7 @@ namespace ATN.Catia.R24.Ext
 		
 		static Selection CopyPasteBase(DocumentNode[] nodes, DocumentNode toNode, bool clear, bool special, string command)
 		{
-			var aDoc = CatiaApp.Instance.ActiveDocument;
+			var aDoc = CatiaApplication.Instance.ActiveDocument;
 			var sel = aDoc.Selection;
 			
 			sel.Clear();

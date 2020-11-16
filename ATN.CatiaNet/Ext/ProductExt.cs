@@ -93,7 +93,7 @@ namespace ATN.Catia.R24.Ext
 					oShapeRepresentation = productDoc.GetMasterShapeRepresentation(false).AsPartDocument();
 					string name = oShapeRepresentation.GetName();// .get_Name();
 					if (name.Contains("CATPart")) {
-						return oShapeRepresentation.Part;
+						return oShapeRepresentation.get_Part();
 					}
 				}
 			}

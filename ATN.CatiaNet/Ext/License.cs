@@ -11,6 +11,9 @@ using Dassault.Catia.R24.HybridShapeTypeLib;
 using Dassault.Catia.R24.KnowledgewareTypeLib;
 using Dassault.Catia.R24.SPATypeLib;
 
+using ATN.Catia.R24.COM;
+
+
 namespace ATN.Catia.R24.Ext
 {
 	/// <summary>
@@ -39,7 +42,7 @@ namespace ATN.Catia.R24.Ext
 		
 		public static bool CheckIfOpen(Licenses license)
 		{
-			var Catia = CatiaApp.Instance;
+			var Catia = CatiaApplication.Instance;
 			Debug.WriteLine("Entering checkIfOpen:CatLicence: ");
 			
 			SettingControllers SettingsContrs = Catia.SettingControllers; // error

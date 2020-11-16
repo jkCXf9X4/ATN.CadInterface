@@ -15,6 +15,7 @@ using System.Xml;
 
 using ATN.Utils.NativeExt.StringExt;
 
+using ATN.Catia.R24.COM;
 
 using Dassault.Catia.R24.INFITF;
 using Dassault.Catia.R24.ProductStructureTypeLib;
@@ -35,7 +36,7 @@ namespace ATN.Catia.R24.Ext
 		{
 			Tree.ApplyWorkMode();
 			
-			var aDoc = CatiaApp.Instance.ActiveDocument;
+			var aDoc = CatiaApplication.Instance.ActiveDocument;
 			var sel =  aDoc.Selection;
 			
 			var tree = new NodeTree(aDoc);
@@ -62,7 +63,7 @@ namespace ATN.Catia.R24.Ext
 
 		public static void PrintTreeNames()
         {
-			Application catia = CatiaApp.Instance;
+			Application catia = CatiaApplication.Instance;
 
 			var doc = catia.ActiveDocument;
 			var productDocument = doc.AsProductDocument();
@@ -102,7 +103,7 @@ namespace ATN.Catia.R24.Ext
 		
 		public static void Example_Transform()
 		{
-			var aDoc = CatiaApp.Instance.ActiveDocument;
+			var aDoc = CatiaApplication.Instance.ActiveDocument;
 			var sel =  aDoc.Selection;
 			
 			var tree = new NodeTree(aDoc);
@@ -128,7 +129,7 @@ namespace ATN.Catia.R24.Ext
 		{
             Application catia;
             try {
-				catia = CatiaApp.Instance;
+				catia = CatiaApplication.Instance;
 			} catch {
 				Debug.WriteLine("Start catia");
 				throw new ArgumentNullException();
@@ -151,7 +152,7 @@ namespace ATN.Catia.R24.Ext
 		{
             Application catia;
             try {
-				catia = CatiaApp.Instance;
+				catia = CatiaApplication.Instance;
 			} catch {
 				Debug.WriteLine("Start catia");
 				throw new ArgumentNullException();
@@ -183,7 +184,7 @@ namespace ATN.Catia.R24.Ext
             Application catia;
             try
 			{
-				catia = CatiaApp.Instance;
+				catia = CatiaApplication.Instance;
 			}
 			catch
 			{
@@ -238,13 +239,13 @@ namespace ATN.Catia.R24.Ext
 		
 		public static void Example_Selection()
 		{
-			var activeDoc =  CatiaApp.Instance.ActiveDocument;
+			var activeDoc =  CatiaApplication.Instance.ActiveDocument;
 			
 			Debug.WriteLine( activeDoc.GetName());
 			
 			var selection = activeDoc.Selection;
 			
-			_ =  CatiaApp.Instance.Documents;
+			_ =  CatiaApplication.Instance.Documents;
 			
 			
 			selection.DebugSelection();

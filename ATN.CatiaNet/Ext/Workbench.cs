@@ -12,6 +12,8 @@ using Dassault.Catia.R24.SPATypeLib;
 
 using ATN.Utils.NativeExt.DictExt;
 
+using ATN.Catia.R24.COM;
+
 namespace ATN.Catia.R24.Ext
 {
     /// <summary>
@@ -40,13 +42,13 @@ namespace ATN.Catia.R24.Ext
 
         public static string GetWorkbenchId()
         {
-            var Catia = CatiaApp.Instance;
+            var Catia = CatiaApplication.Instance;
             return Catia.GetWorkbenchId();
         }
 
         public static bool SwitchWorkbench(Workbenches i)
         {
-            var Catia = CatiaApp.Instance;
+            var Catia = CatiaApplication.Instance;
             var wbID = GetWorkbenchId();
             if (Workbench.dict[wbID] != i)
             {
